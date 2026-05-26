@@ -1,0 +1,10 @@
+const express = require('express');
+const { getSummary, getMonthlyTrend, getCategoryBreakdown, getRecent } = require('../controllers/analyticsController');
+const { protect } = require('../middleware/authMiddleware');
+const router = express.Router();
+router.use(protect);
+router.get('/summary',            getSummary);
+router.get('/monthly-trend',      getMonthlyTrend);
+router.get('/category-breakdown', getCategoryBreakdown);
+router.get('/recent',             getRecent);
+module.exports = router;
