@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const { startReminderJob } = require('./services/reminderJob');
 
 const PORT = process.env.PORT || 5000;
+
 const startServer = async () => {
   await connectDB();
 
@@ -14,8 +15,5 @@ const startServer = async () => {
   // Start cron jobs after DB is connected
   startReminderJob();
 };
-app.use('/', (req, res) => {
-    res.send('Hello');
-});
 
 startServer();

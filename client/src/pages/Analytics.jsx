@@ -39,7 +39,7 @@ export default function Analytics() {
     setLoading(true);
     try {
       const [t, b, ib] = await Promise.all([
-        analyticsApi.getMonthlyTrend(12),
+        analyticsApi.getMonthlyTrend(6),
         analyticsApi.getCategoryBreakdown(month),
         analyticsApi.getCategoryBreakdown(month).then(() =>
           analyticsApi.getCategoryBreakdown(month)
@@ -82,7 +82,7 @@ export default function Analytics() {
 
           {/* 12-Month Line Chart */}
           <div className="card">
-            <h3 className="text-base font-semibold text-gray-800 mb-4">12-Month Income vs Expense</h3>
+            <h3 className="text-base font-semibold text-gray-800 mb-4">6-Month Income vs Expense</h3>
             <ResponsiveContainer width="100%" height={280}>
               <LineChart data={trend12} margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
